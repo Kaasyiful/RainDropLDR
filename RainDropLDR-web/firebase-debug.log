@@ -1,0 +1,108 @@
+[debug] [2024-03-09T13:56:53.403Z] ----------------------------------------------------------------------
+[debug] [2024-03-09T13:56:53.406Z] Command:       D:\Downloads\firebase-tools-instant-win.exe C:\Users\User\.cache\firebase\tools\lib\node_modules\firebase-tools\lib\bin\firebase init
+[debug] [2024-03-09T13:56:53.406Z] CLI Version:   13.4.1
+[debug] [2024-03-09T13:56:53.406Z] Platform:      win32
+[debug] [2024-03-09T13:56:53.406Z] Node Version:  v18.5.0
+[debug] [2024-03-09T13:56:53.414Z] Time:          Sat Mar 09 2024 20:56:53 GMT+0700 (GMT+07:00)
+[debug] [2024-03-09T13:56:53.415Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-03-09T13:56:53.435Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-03-09T13:56:53.436Z] > authorizing via signed-in user (husainkaasyiful@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\Downloads\Projects\RainDropLDR\RainDropLDR-web
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-03-09T14:17:04.574Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2024-03-09T14:17:05.522Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2024-03-09T14:17:05.523Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project raindropldr-new (RainDropLDR-new) 
+[info] 
+=== Database Setup
+[info] i  database: ensuring required API firebasedatabase.googleapis.com is enabled... 
+[debug] [2024-03-09T14:17:07.410Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/raindropldr-new/services/firebasedatabase.googleapis.com [none]
+[debug] [2024-03-09T14:17:07.410Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/raindropldr-new/services/firebasedatabase.googleapis.com x-goog-quota-user=projects/raindropldr-new
+[debug] [2024-03-09T14:17:08.842Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/raindropldr-new/services/firebasedatabase.googleapis.com 200
+[debug] [2024-03-09T14:17:08.842Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/raindropldr-new/services/firebasedatabase.googleapis.com [omitted]
+[info] +  database: required API firebasedatabase.googleapis.com is enabled 
+[info] 
+[debug] [2024-03-09T14:17:08.846Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/raindropldr-new [none]
+[debug] [2024-03-09T14:17:09.391Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/raindropldr-new 200
+[debug] [2024-03-09T14:17:09.392Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/raindropldr-new {"projectId":"raindropldr-new","projectNumber":"817059336964","displayName":"RainDropLDR-new","name":"projects/raindropldr-new","resources":{"hostingSite":"raindropldr-new"},"state":"ACTIVE","etag":"1_fb2f5640-b209-4562-906d-a6eafa5718e4"}
+[debug] [2024-03-09T14:17:19.467Z] >>> [apiv2][query] POST https://firebasedatabase.googleapis.com/v1beta/projects/raindropldr-new/locations/asia-southeast1/instances databaseId=raindropldr-new-default-rtdb&validateOnly=true
+[debug] [2024-03-09T14:17:19.467Z] >>> [apiv2][body] POST https://firebasedatabase.googleapis.com/v1beta/projects/raindropldr-new/locations/asia-southeast1/instances {"type":"default_database"}
+[debug] [2024-03-09T14:17:21.061Z] <<< [apiv2][status] POST https://firebasedatabase.googleapis.com/v1beta/projects/raindropldr-new/locations/asia-southeast1/instances 200
+[debug] [2024-03-09T14:17:21.062Z] <<< [apiv2][body] POST https://firebasedatabase.googleapis.com/v1beta/projects/raindropldr-new/locations/asia-southeast1/instances {"name":"projects/817059336964/locations/asia-southeast1/instances/raindropldr-new-default-rtdb","project":"projects/817059336964","databaseUrl":"https://raindropldr-new-default-rtdb.asia-southeast1.firebasedatabase.app","type":"DEFAULT_DATABASE","state":"ACTIVE"}
+[debug] [2024-03-09T14:17:21.064Z] >>> [apiv2][query] POST https://firebasedatabase.googleapis.com/v1beta/projects/raindropldr-new/locations/asia-southeast1/instances databaseId=raindropldr-new-default-rtdb
+[debug] [2024-03-09T14:17:21.064Z] >>> [apiv2][body] POST https://firebasedatabase.googleapis.com/v1beta/projects/raindropldr-new/locations/asia-southeast1/instances {"type":"default_database"}
+[debug] [2024-03-09T14:17:22.832Z] <<< [apiv2][status] POST https://firebasedatabase.googleapis.com/v1beta/projects/raindropldr-new/locations/asia-southeast1/instances 200
+[debug] [2024-03-09T14:17:22.833Z] <<< [apiv2][body] POST https://firebasedatabase.googleapis.com/v1beta/projects/raindropldr-new/locations/asia-southeast1/instances {"name":"projects/817059336964/locations/asia-southeast1/instances/raindropldr-new-default-rtdb","project":"projects/817059336964","databaseUrl":"https://raindropldr-new-default-rtdb.asia-southeast1.firebasedatabase.app","type":"DEFAULT_DATABASE","state":"ACTIVE"}
+[info] 
+[info] Firebase Realtime Database Security Rules allow you to define how your data should be
+[info] structured and when your data can be read from and written to.
+[info] 
+[debug] [2024-03-09T14:19:04.934Z] >>> [apiv2][query] GET https://raindropldr-new-default-rtdb.asia-southeast1.firebasedatabase.app/.settings/rules.json [none]
+[debug] [2024-03-09T14:19:06.564Z] <<< [apiv2][status] GET https://raindropldr-new-default-rtdb.asia-southeast1.firebasedatabase.app/.settings/rules.json 200
+[debug] [2024-03-09T14:19:06.564Z] <<< [apiv2][body] GET https://raindropldr-new-default-rtdb.asia-southeast1.firebasedatabase.app/.settings/rules.json [stream]
+[info] +  Database Rules for raindropldr-new-default-rtdb have been written to database.rules.json. 
+[info] Future modifications to database.rules.json will update Realtime Database Security Rules when you run
+[info] firebase deploy.
+[info] 
+=== Functions Setup
+[debug] [2024-03-09T14:19:06.590Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-03-09T14:19:06.591Z] > authorizing via signed-in user (husainkaasyiful@gmail.com)
+[debug] [2024-03-09T14:19:06.591Z] [iam] checking project raindropldr-new for permissions ["firebase.projects.get"]
+[debug] [2024-03-09T14:19:06.593Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/raindropldr-new:testIamPermissions [none]
+[debug] [2024-03-09T14:19:06.593Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/raindropldr-new:testIamPermissions x-goog-quota-user=projects/raindropldr-new
+[debug] [2024-03-09T14:19:06.593Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/raindropldr-new:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-03-09T14:19:07.682Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/raindropldr-new:testIamPermissions 200
+[debug] [2024-03-09T14:19:07.683Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/raindropldr-new:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-03-09T14:19:07.683Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/raindropldr-new/services/cloudfunctions.googleapis.com [none]
+[debug] [2024-03-09T14:19:07.684Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/raindropldr-new/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/raindropldr-new
+[debug] [2024-03-09T14:19:07.686Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/raindropldr-new/services/runtimeconfig.googleapis.com [none]
+[debug] [2024-03-09T14:19:07.686Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/raindropldr-new/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/raindropldr-new
+[debug] [2024-03-09T14:19:09.061Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/raindropldr-new/services/runtimeconfig.googleapis.com 200
+[debug] [2024-03-09T14:19:09.061Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/raindropldr-new/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2024-03-09T14:19:09.210Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/raindropldr-new/services/cloudfunctions.googleapis.com 200
+[debug] [2024-03-09T14:19:09.210Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/raindropldr-new/services/cloudfunctions.googleapis.com [omitted]
+[debug] [2024-03-09T14:19:09.214Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/raindropldr-new/services/cloudfunctions.googleapis.com:enable [none]
+[debug] [2024-03-09T14:19:09.214Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/raindropldr-new/services/cloudfunctions.googleapis.com:enable x-goog-quota-user=projects/raindropldr-new
+[debug] [2024-03-09T14:19:10.897Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/raindropldr-new/services/cloudfunctions.googleapis.com:enable 200
+[debug] [2024-03-09T14:19:10.897Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/raindropldr-new/services/cloudfunctions.googleapis.com:enable [omitted]
+[debug] [2024-03-09T14:19:20.902Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/raindropldr-new/services/cloudfunctions.googleapis.com [none]
+[debug] [2024-03-09T14:19:20.903Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/raindropldr-new/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/raindropldr-new
+[debug] [2024-03-09T14:19:22.399Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/raindropldr-new/services/cloudfunctions.googleapis.com 200
+[debug] [2024-03-09T14:19:22.399Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/raindropldr-new/services/cloudfunctions.googleapis.com [omitted]
+[info] Let's create a new codebase for your functions.
+[info] A directory corresponding to the codebase will be created in your project
+[info] with sample code pre-configured.
+
+[info] See https://firebase.google.com/docs/functions/organize-functions for
+[info] more information on organizing your functions using codebases.
+
+[info] Functions can be deployed with firebase deploy.
+
+[info] +  Wrote functions/requirements.txt 
+[info] +  Wrote functions/.gitignore 
+[info] +  Wrote functions/main.py 
+[debug] [2024-03-09T14:25:11.782Z] Running command with virtualenv: command="D:\Downloads\Projects\RainDropLDR\RainDropLDR-web\functions\venv\Scripts\activate.bat", args=["","&&","pip3","install","--upgrade","pip"]
+[debug] [2024-03-09T14:25:16.557Z] Error: spawn "D:\Downloads\Projects\RainDropLDR\RainDropLDR-web\functions\venv\Scripts\activate.bat" ENOENT
+    at notFoundError (C:\Users\User\.cache\firebase\tools\lib\node_modules\cross-spawn\lib\enoent.js:6:26)
+    at verifyENOENT (C:\Users\User\.cache\firebase\tools\lib\node_modules\cross-spawn\lib\enoent.js:40:16)
+    at cp.emit (C:\Users\User\.cache\firebase\tools\lib\node_modules\cross-spawn\lib\enoent.js:27:25)
+    at ChildProcess._handle.onexit (node:internal/child_process:291:12)
+[error] 
+[error] Error: An unexpected error has occurred.
