@@ -1,6 +1,5 @@
 #include <LiquidCrystal_I2C.h>
 #include <ESP8266WiFi.h>
-#include <TimeLib.h>
 #include <ESP8266Firebase.h>
 
 #define LDRPin D8
@@ -12,7 +11,10 @@
 
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 Firebase firebase(RefFirebase);
-time_t hujanTerakhir;
+
+int pewaktu = 0;
+int hujanTerakhir = 0;
+int hariKering = 0;
 
 void reconnectDisplay()
 {
@@ -40,7 +42,6 @@ void setup()
   lcd.begin();
   lcd.clear();
   lcd.backlight();
-  hujanTerakhir = now();
 
   WiFi.begin(ssid, katasandi);
   reconnectDisplay();
@@ -54,10 +55,10 @@ void LEDloop()
   digitalWrite(LED_BUILTIN, HIGH);
 }
 
-void lightDetect(String strWaktu, bool masukanCahaya)
+void lightDetect(int waktu, bool masukanCahaya)
 {
   lcd.setCursor(0, 0);
-  Serial.print("Cahaya pada" + strWaktu + "\t: ");
+  Serial.print("Cahaya pada t+" + String(waktu) + "\t: ");
   lcd.print("Cahaya: ");
 
   lcd.setCursor(8, 0);
@@ -73,61 +74,67 @@ void lightDetect(String strWaktu, bool masukanCahaya)
   }
 }
 
-int rainDetect(time_t sekarang, int masukanHujan)
+int rainDetect(int waktu, int masukanHujan)
 {
-  int hariKering = 0;
-  Serial.print("Hari setelah hujan terahkir:\t");
-  lcd.setCursor(0, 1);
-  lcd.println("     ");
 
-  if(masukanHujan >= 2.5)
+  Serial.print("Hari setelah hujan terakhir:\t");
+  lcd.setCursor(0, 1);
+  lcd.println("                ");
+
+  if(masukanHujan <= 700)
   {
     Serial.println("0");
-    hujanTerakhir = sekarang;
+    hujanTerakhir = waktu;
+    int hariKering = 0;
     lcd.setCursor(0, 1);
     lcd.print("Hujan");
-    if(second() == 0)
+    if(waktu % 5 == 0)
       hariKering = 0;
-      
   }
-  else if(masukanHujan < 2.5)
+  else
   {
-    hujanTerakhir = sekarang;
     lcd.setCursor(0, 1);
     lcd.print("Kering u/ " + String(hariKering) + "h");
-    if(second() == 0)
-      hariKering = minute(sekarang - hujanTerakhir);
+    if(waktu % 5 == 0)
+      hariKering = (waktu - hujanTerakhir) /5;
+    Serial.println(hariKering);
   }
   return hariKering;
 }
 
-void PushFirebase(time_t sekarang, String strWaktu, bool masukanCahaya, float masukanHujan)
+void PushFirebase(int waktu, bool masukanCahaya, float masukanHujan)
 {
-  if (second() == 0)
+  if (waktu % 10 == 0)
   {
-    firebase.setInt(strWaktu + "/cahaya", masukanCahaya);
-    firebase.setInt(strWaktu + "/hujan", masukanHujan);
+    firebase.setInt("t+" + String(waktu) + "/cahaya", masukanCahaya);
+    firebase.setInt("t+" + String(waktu) + "/hujan", masukanHujan);
   }
 }
 
 void loop() 
 {
   // put your main code here, to run repeatedly:
-  time_t sekarang = now();
-  String StrWaktu = String(year()) + "-" + String(month()) + "-" + String(day()) + String(hour()) + String(minute());
   reconnectDisplay();
   LEDloop();
   
   int MasukanHujan = analogRead(RDPin);
+  Serial.println(MasukanHujan);
   bool MasukanCahaya = digitalRead(LDRPin);
-  lightDetect(StrWaktu, MasukanCahaya);
-  int waktuKering = rainDetect(sekarang, MasukanCahaya);
-  if(waktuKering > 10)
+  lightDetect(pewaktu, MasukanCahaya);
+  int waktuKering = rainDetect(pewaktu, MasukanHujan);
+  
+  if(waktuKering > 3 && MasukanHujan > 700)
   {
-    int detik = second(now());
-    while(detik %= 5) tone(buzzpin, 440, 2);
+    lcd.setCursor(0, 0);
+    lcd.println("Perlu Intervensi");
+    lcd.setCursor(0, 1);
+    lcd.println("Manual");
+
+    if(pewaktu % 5 == 0) tone(buzzpin, 440, 400);
   }
 
-  PushFirebase(sekarang, StrWaktu, MasukanCahaya, MasukanHujan);
+  PushFirebase(pewaktu, MasukanCahaya, MasukanHujan);
+
   delay(1000);
+  pewaktu++;
 }
