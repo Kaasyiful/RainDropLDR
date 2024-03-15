@@ -1,0 +1,28 @@
+{
+  "Mahasiswa": [
+    {
+      "nama": "nama1",
+      "nim": "1103",
+      "kelas": "TK01",
+      "alamat": "Bandung"
+    },
+    {
+      "nama": "nama2",
+      "nim": "1344",
+      "kelas": "TK04",
+      "alamat": "Bandung"
+    },
+    {
+      "nama": "nama3",
+      "nim": "2305",
+      "kelas": "TK02",
+      "alamat": "Bandung"
+    },
+    {
+      "nama": "nama4",
+      "nim": "0503",
+      "kelas": "TK01",
+      "alamat": "Bandung"
+    }
+  ]
+}

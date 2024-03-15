@@ -1,7 +1,40 @@
 import '../assets/pricing.css'
+import Data from '../assets/biodata.json'
+
+let data = JSON.stringify(Data["Mahasiswa"])
+let ardata:Array<Object> = JSON.parse(data)
+let contoh = 0
+
+export function InAbout({contoh}) {
+    let datain = JSON.stringify(ardata.at(contoh))
+    let ardatain: Array<string> = JSON.parse(datain)
+    let datanama = JSON.stringify(ardatain.nama)
+    let nama = datanama.slice(1, -1)
+    let datanim = JSON.stringify(ardatain.nim)
+    let nim = datanim.slice(1, -1)
+    let datakelas = JSON.stringify(ardatain.kelas)
+    let kelas = datakelas.slice(1, -1)
+
+    return (
+        <div className="col">
+            <div className="card mb-4 rounded-3 shadow-sm">
+                <div className="card-header py-3">
+                    <h4 className="my-0 fw-normal">{nama}</h4>
+                </div>
+                <div className="card-body">
+                    <h1 className="card-title pricing-card-title">$0<small className="text-body-secondary fw-light">/mo</small></h1>
+                    <ul className="list-unstyled mt-3 mb-4">
+                        NIM: {nim} <br />
+                        Kelas: {kelas}
+                    </ul>
+                    <button type="button" className="w-100 btn btn-lg btn-outline-primary">Sign up for free</button>
+                </div>
+            </div>
+        </div>
+    )
+}
 
 function About() {
-
     return (
         <>
             <div className="container py-3">
@@ -14,74 +47,10 @@ function About() {
 
                 <main>
                     <div className="row row-cols-1 row-cols-md-4 mb-3 text-center">
-                        <div className="col">
-                            <div className="card mb-4 rounded-3 shadow-sm">
-                                <div className="card-header py-3">
-                                    <h4 className="my-0 fw-normal">Free</h4>
-                                </div>
-                                <div className="card-body">
-                                    <h1 className="card-title pricing-card-title">$0<small className="text-body-secondary fw-light">/mo</small></h1>
-                                    <ul className="list-unstyled mt-3 mb-4">
-                                        <li>10 users included</li>
-                                        <li>2 GB of storage</li>
-                                        <li>Email support</li>
-                                        <li>Help center access</li>
-                                    </ul>
-                                    <button type="button" className="w-100 btn btn-lg btn-outline-primary">Sign up for free</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col">
-                            <div className="card mb-4 rounded-3 shadow-sm">
-                                <div className="card-header py-3">
-                                    <h4 className="my-0 fw-normal">Pro</h4>
-                                </div>
-                                <div className="card-body">
-                                    <h1 className="card-title pricing-card-title">$15<small className="text-body-secondary fw-light">/mo</small></h1>
-                                    <ul className="list-unstyled mt-3 mb-4">
-                                        <li>20 users included</li>
-                                        <li>10 GB of storage</li>
-                                        <li>Priority email support</li>
-                                        <li>Help center access</li>
-                                    </ul>
-                                    <button type="button" className="w-100 btn btn-lg btn-primary">Get started</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col">
-                            <div className="card mb-4 rounded-3 shadow-sm">
-                                <div className="card-header py-3">
-                                    <h4 className="my-0 fw-normal">Pro</h4>
-                                </div>
-                                <div className="card-body">
-                                    <h1 className="card-title pricing-card-title">$15<small className="text-body-secondary fw-light">/mo</small></h1>
-                                    <ul className="list-unstyled mt-3 mb-4">
-                                        <li>20 users included</li>
-                                        <li>10 GB of storage</li>
-                                        <li>Priority email support</li>
-                                        <li>Help center access</li>
-                                    </ul>
-                                    <button type="button" className="w-100 btn btn-lg btn-primary">Get started</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col">
-                            <div className="card mb-4 rounded-3 shadow-sm">
-                                <div className="card-header py-3">
-                                    <h4 className="my-0 fw-normal">Pro</h4>
-                                </div>
-                                <div className="card-body">
-                                    <h1 className="card-title pricing-card-title">$15<small className="text-body-secondary fw-light">/mo</small></h1>
-                                    <ul className="list-unstyled mt-3 mb-4">
-                                        <li>20 users included</li>
-                                        <li>10 GB of storage</li>
-                                        <li>Priority email support</li>
-                                        <li>Help center access</li>
-                                    </ul>
-                                    <button type="button" className="w-100 btn btn-lg btn-primary">Get started</button>
-                                </div>
-                            </div>
-                        </div>
+                        <InAbout contoh={0} />
+                        <InAbout contoh={1} />
+                        <InAbout contoh={2} />
+                        <InAbout contoh={3} />
                     </div>
                 </main>
             </div>
